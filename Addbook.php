@@ -2,8 +2,6 @@
             $conn = mysqli_connect("localhost", "root", "", "opensource");
                 if (!$conn){
                     die("Connection Failed: ".mysqli_connect_error);
-                }else{
-                    echo 'Connected Succesfully';
                 }
 ?>
 
@@ -26,7 +24,7 @@
  		<label>Author:</label> <input type="text" name="author" required/><br /> 
  		<label>Published Year:</label> <input type="text" name="year" required/> 
          <div><br/></div> 
-     <input style="float:right" type="submit" value="Add Book" onClick="return submit_form();" name="submit"/> 2     </fieldset> 
+     <input style="float:right" type="submit" value="Add Book" onClick="return submit_form();" name="submit"/>    </fieldset> 
         
         
         
@@ -44,7 +42,27 @@
                      <th>Action</th> 
                  </tr> 
              </thead> 
-             <tbody> 
+             <tbody>
+                 <?php
+                 $sql = "SELECT * FROM books";
+                $records = mysqli_query($conn,$sql);
+                      while($row = mysqli_fetch_array($records)){?>
+                      
+                 <tr> 
+                                 <td><?php echo $row['Title']; ?></td>
+                                    <td><?php echo $row['Pages']; ?></td>
+                                    <td><?php echo $row['Author']; ?></td>
+                                    <td><?php echo $row['PublicationYear']; ?></td>
+                                
+                                    
+                                    
+        
+                            </tr>  
+                 
+                      
+                 <?php
+                                                                }
+                 ?>
 
              </tbody> 
          </table> 

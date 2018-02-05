@@ -1,7 +1,12 @@
 
 <?php
 
-
+    $conn = mysqli_connect("localhost", "root", "", "opensource");
+                if (!$conn){
+                    die("Connection Failed: ".mysqli_connect_error);
+                }else{
+                    echo 'Connected Succesfully';
+                }
 
 
  $title = $_POST['title'];
@@ -11,14 +16,14 @@
 
 
 
-    $query2 = "INSERT INTO userinfo (f_name,l_name,c_number,address,bdate,city,Region,state,zip) VALUES ('$title', '$pages', '$author', 
+    $query2 = "INSERT INTO books (title,pages,author,publicationyear) VALUES ('$title', '$pages', '$author', 
     '$year')";
 
 
 
     $result = $conn -> query($query2);
 
-     header("Location: displaytable2.php"); 
+     header("Location: Addbook.php"); 
 
 ?>
 
