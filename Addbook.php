@@ -1,6 +1,12 @@
-<?php 
-      
- ?> 
+<?php
+            $conn = mysqli_connect("localhost", "root", "", "opensource");
+                if (!$conn){
+                    die("Connection Failed: ".mysqli_connect_error);
+                }else{
+                    echo 'Connected Succesfully';
+                }
+?>
+
  <html> 
  
  
@@ -11,7 +17,7 @@
  
  
  <body> 
- 	<form action="" method="post"> 
+ 	<form action="insertion.php" method="post"> 
  	<h1>Library Database</h1> 
  	<fieldset> 
  		<legend>Book Information</legend> 
@@ -21,7 +27,15 @@
  		<label>Published Year:</label> <input type="text" name="year" required/> 
          <div><br/></div> 
      <input style="float:right" type="submit" value="Add Book" onClick="return submit_form();" name="submit"/> 2     </fieldset> 
-     <h3>List of Stored Books</h3> 4     <table border="2" align="center" cellpadding=5> 
+        
+        
+        
+        
+        
+        
+        
+        </form> 
+     <table border="2" align="center" cellpadding=5> 
              <thead> 
                  <tr><th>Title</th> 
                      <th>Pages</th> 
@@ -31,19 +45,22 @@
                  </tr> 
              </thead> 
              <tbody> 
-                 <?php 
-                  
-                 ?> 
+
              </tbody> 
          </table> 
- 	</form> 
+        
+        
+       
+ 	
      <script type="text/javascript" src="assets/js/jquery-1.10.2.js"></script> 
  	<script type="text/javascript"> 
  		function submit_form(){ 
  			alert("A new book has been successfully added!"); 
  		} 
  	</script> 
- <?php  
-     $dbconn->close(); 
+
  </body> 
  </html> 
+
+
+
